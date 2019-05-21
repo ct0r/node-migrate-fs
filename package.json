@@ -1,6 +1,6 @@
 {
   "name": "node-migrate-fs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "File system store for node-migrate",
   "main": "index.js",
   "scripts": {
