@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = ({ file: path }) => {
+module.exports = ({ path }) => {
   return {
     get() {
       try {
