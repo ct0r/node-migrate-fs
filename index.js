@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = ({ path }) => {
+module.exports = ({ path = 'migrations/.state' }) => {
   return {
     get() {
       try {
