@@ -8,7 +8,7 @@ const fsStore = require('.');
 
 const getPath = () => `test-${crypto.randomBytes(5).toString('hex')}`;
 
-test('set saves files to db', async t => {
+test('set saves files to fs', async t => {
   const path = getPath();
   const store = fsStore({ path });
   const state = ['migration-1', 'migration-2'];
@@ -22,7 +22,7 @@ test('set saves files to db', async t => {
   t.deepEqual(data, JSON.stringify(state));
 });
 
-test('get returns files from db', async t => {
+test('get returns files from fs', async t => {
   const path = getPath();
   const store = fsStore({ path });
   const data = JSON.stringify(['migration-1', 'migration-2']);
@@ -34,6 +34,15 @@ test('get returns files from db', async t => {
   fs.unlinkSync(path);
 
   t.deepEqual(state, JSON.parse(data));
+});
+
+test('get returns null if file does not exist', async t => {
+  const path = getPath();
+  const store = fsStore({ path });
+
+  const state = await store.get();
+
+  t.deepEqual(state, null);
 });
 
 test('getOptions returns options', t => {
