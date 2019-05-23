@@ -21,6 +21,6 @@ module.exports.cli = {
     '--store-path': String
   },
   getOptions: args => ({
-    file: args['--store-path']
+    path: args['--store-path']
   })
 };
